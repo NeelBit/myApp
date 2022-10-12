@@ -1,0 +1,44 @@
+<!-- <p>Aqui iría un empleado {{ getNombre() }} {{ getApellido() }} tiene {{ getEdad() + 2 }} y trabaja en {{ getEmpresa() }}. {{ getEdad()>=30 ? "mayor de 30" : "menor que 30" }}</p> -->
+<p>Nombre del empleado: {{ nombre }} {{ apellido }} tiene {{ edad }} y trabaja en {{ empresa.value }}.</p>
+<p>{{ textoRegistroProperty }}</p>
+<p>El genero es: {{ genero }}</p>
+
+<div>
+    <!-- <input type="text" name="empresa" id="empresa" #empresa (keyup)="empresaRenombre(empresa.value)"> -->
+    <input type="text" name="empresa" id="empresa" #empresa (keyup)="empresa.value" [disabled]="estaDeshabilitadoProperty">
+    <label for="empresa">empresa</label>
+    <!-- <button type="submit" id="btn_empresa" (click)="empresaRenombre(empresa.value)">modificar nombre de empresa</button> -->
+
+    <div>
+
+        <!-- [propertyBinding]   (eventBinding) -->
+
+        <input type="checkbox" name="registrado" id="registado" #registrado [checked]="usuRegistradoProperty" (click)="registrarUsuario()">
+        <label for="registrado">registrado</label>
+        <!-- <button (click)="ActiveRegistroUsuario()">checkear registro</button> -->
+        <!-- {{ activeRegistroUsuario() }} -->
+    </div>
+
+    <br>
+
+    <div>
+        <label for="generoF">generoF</label>
+        <input type="radio" name="genero" id="generoF" value="genero_F" (click)="cambioGenero($event)">
+
+        <label for="generoM">generoM</label>
+        <input type="radio" name="genero" id="generoM" value="genero_M" (click)="cambioGenero($event)">
+
+
+    </div>
+
+    <br>
+
+    <div>
+        <label for="lugar">lugar</label>
+        <input type="text" name="lugar" id="lugar" [(ngModel)]="lugar">
+        <p>lugar de residencia: {{ lugar }}</p>
+    </div>
+
+
+
+</div>
